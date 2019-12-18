@@ -39,16 +39,20 @@ h1 {
   }
   &__container {
     z-index: 2;
-    width: 60%;
+    width: 50%;
     height: 45%;
     overflow: hidden;
-    padding: 70px;
     background: #000;
+    position: relative;
   }
   &__items {
     display: flex;
     justify-content: flex-start;
     height: 100%;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    transition: all .5s;
   }
   &__item {
     min-width: 100%;
@@ -57,12 +61,16 @@ h1 {
     align-items: center;
     justify-content: space-around;
     background: #000;
+    box-sizing: border-box;
+    padding: 30px;
+    margin: 0;
   }
   &__quote {
     color: #fff;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 24px;
-    padding: 30px;
+    padding: 10px;
+    max-width: 40%;
     p {
       text-align: center;
       margin-bottom: 20px;
@@ -72,8 +80,32 @@ h1 {
     }
   }
   &__img {
-    max-width: 45%;
+    max-width: 60%;
     border: 5px solid #fff;
+    margin: 10px;
+    max-height: 70%;
+  }
+  &__prev-button,
+  &__next-button {
+    position: absolute;
+    top: 45%;
+    color: #fff;
+    border: none;
+    background: rgba(46, 45, 45, 0.849);
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 5px;
+    z-index: 2;
+    cursor: pointer;
+    &:active {
+      border: none;
+    }
+  }
+  &__prev-button {
+    left: 5px;
+  }
+  &__next-button {
+    right: 5px;
   }
   &__about-me {
     padding: 10px 0;
