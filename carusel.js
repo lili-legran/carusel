@@ -1,4 +1,5 @@
 const caruselItemsContainer = document.querySelector('.carusel__items');
+const caruselVisualContainer = document.querySelector('.carusel__container');
 let caruselItems = document.querySelectorAll('.carusel__item');
 const baseItemsLength = caruselItems.length;
 const nextButton = document.querySelector('.carusel__next-button');
@@ -39,6 +40,16 @@ const infinityPrevMotion = () => {
 
 nextButton.addEventListener('click', caruselNextMotion);
 prevButton.addEventListener('click', caruselPrevMotion);
+let automaticMotion = setInterval(caruselNextMotion, 1000);
+
+caruselVisualContainer.onmouseout = function continueMotion() {
+    automaticMotion = setInterval(caruselNextMotion, 1000);
+}
+
+caruselVisualContainer.onmouseover = function stopMotion() {
+    clearInterval(automaticMotion); 
+}
+
 
 
 
